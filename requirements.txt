@@ -1,0 +1,5 @@
+json
+pdfplumber
+requests
+faiss-cpu
+numpy
