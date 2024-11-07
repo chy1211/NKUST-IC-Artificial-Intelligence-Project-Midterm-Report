@@ -27,7 +27,7 @@ def split_text(text, max_length=500):
 text_chunks = split_text(text)
 
 # 構建 API 請求
-url = "http://140.133.74.247:1234/v1/embeddings"
+url = "http://localhost:1234/v1/embeddings"
 headers = {"Content-Type": "application/json"}
 
 vectors = []
@@ -71,7 +71,7 @@ for question in questions:
                 distances, indices = index_flat.search(embedding, 5)
                 nearest_texts = "\n".join([f"[{i+1}] {text_chunks[idx]}" for i, idx in enumerate(indices[0])])
 
-                llm_url = "http://140.133.74.247:1234/v1/chat/completions"
+                llm_url = "http://localhost:1234/v1/chat/completions"
                 llm_headers = {"Content-Type": "application/json"}
                 llm_data = {
                     "model": "taidetaide-lx-7b-chat",
